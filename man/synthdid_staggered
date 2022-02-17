@@ -1,0 +1,39 @@
+% Please edit documentation in R/synthdid.R
+\name{synth_did_staggered_treatment}
+\alias{synth_did_staggered_treatment}
+\title{Computes the synthetic diff-in-diff estimate for an average treatment effect on the treated with staggered adoption.}
+
+\usage{
+synth_did_staggered_treatment(data, initial_treat_var, untreated, 
+                               outcome_var, unit, treatment_var, time_var)
+}
+
+\arguments{
+\item{data}{Dataframe.}
+
+\item{initial_treat_var}{Column that contains initial treatment time period.}
+
+\item{untreated}{Value assigned in treatment_var column to the untreated units.}
+
+\item{outcome_var}{Column that contains y variable.}
+
+\item{unit}{Column that identifies each unit.}
+
+\item{treatment_var}{Column that denotes the treatment status for each unit where 1 if unit is treated in that period.}
+
+\item{time_var}{Time period variable.}
+}
+
+\value{
+An average treatment effect estimate with 'weights' and 'setup' attached as attributes.
+'weights' contains the estimated weights lambda and omega and corresponding intercepts,
+as well as regression coefficients beta if X is passed.
+'setup' is a list describing the problem passed in: data, initial_treat_year, untreated, outcome_var, unit, treatment_year, time_var. 
+}
+\description{
+See 'Synthetic Difference in Differences' by Arkhangelsky et al. This implements Algorithm 1.
+}
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
